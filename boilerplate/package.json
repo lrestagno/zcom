@@ -8,7 +8,7 @@
   },
   "dependencies":{
     "react":"16.0.0",
-    "cext":"latest"
+    "zcom":"latest"
   },
   "keywords": [],
   "author": "",

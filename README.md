@@ -1,7 +1,7 @@
 # Install
-`npm install -g cext`
+`npm install -g zcom`
 
 # Create a component
-`cext my-new-super-cool-component`
+`zcom my-new-super-cool-component`
 
-![Using Cext](img/cext.gif?raw=true)
+![Using zcom](img/zcom.gif?raw=true)
