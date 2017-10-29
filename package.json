@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
+  "scripts": {
+    "patch":"npm version patch && npm publish"
+  },
   "dependencies": {
     "colors": "^1.1.2",
     "commander": "^2.11.0",
