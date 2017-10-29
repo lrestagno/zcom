@@ -1,11 +1,11 @@
 {
   "name": "zcom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
   "scripts": {
-    "patch":"npm version patch && npm publish"
+    "patch": "npm version patch && npm publish"
   },
   "dependencies": {
     "colors": "^1.1.2",
