@@ -4,10 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
-  "scripts": {
-    "copypkg": "cp package.json dist",
-    "build": "npm run copypkg && babel src --out-dir dist"
-  },
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
     "colors": "^1.1.2",
