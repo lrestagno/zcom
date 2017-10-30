@@ -1,4 +1,4 @@
-![alt text](img/zcom.png)
+![](img/zcom.png)
 
 Create, code and distribute React components.
 
