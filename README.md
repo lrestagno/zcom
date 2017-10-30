@@ -3,20 +3,31 @@
 Create, code and distribute React components.
 
 ## Setup
-`npm install -g zcom`
+```bash
+npm install -g zcom
+```
 
 ## Create a component
-`zcom my-component`
+```bash
+zcom my-component
+```
 
 ## Run the dev environment (Storybook)
-`zcom dev`
+```bash
+zcom dev
+```
 
-## Build the component for distribution
-`zcom build`
+## Build the component for distribution (dist directory)
+```bash
+zcom build
+```
 
-Check the `dist` directory.
+## Patch and publish (NPM)
+```bash
+zcom pap
+```
 
-## Build the storybook for distribution
-`zcom build-storybook`
-
-Check the `.storybook-static` directory.
+## Build the storybook for distribution (.storybook-static directory)
+```bash
+zcom build-storybook
+```

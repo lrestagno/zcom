@@ -1,7 +1,7 @@
-# Use
+### Use
 
-```
-import MyComponent from 'MyComponent';
+```js
+import MyComponent from 'my-component';
 
 export default () => (
   <MyComponent

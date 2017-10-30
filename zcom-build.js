@@ -39,5 +39,5 @@ const presets = [
   await copy(currentDir('package.json'), distDir('package.json'));
 
   log('Generating Readme ...');
-  
+  await copy(currentDir('README.md'), distDir('README.md'));
 })();
