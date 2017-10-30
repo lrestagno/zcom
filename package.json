@@ -1,8 +1,14 @@
 {
   "name": "zcom",
-  "description":"Create, code and distribute React components.",
-  "keywords":["react","next","storybook","create","generator"],
-  "version": "0.0.4",
+  "description": "Create, code and distribute React components.",
+  "keywords": [
+    "react",
+    "next",
+    "storybook",
+    "create",
+    "generator"
+  ],
+  "version": "0.0.5",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
