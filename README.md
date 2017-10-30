@@ -26,7 +26,7 @@ zcom build
 zcom pap
 ```
 
-## Build the storybook for distribution (static)
+## Build the storybook (static)
 ```bash
 zcom build-storybook
 ```
