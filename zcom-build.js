@@ -34,12 +34,12 @@ const presets = [
     }
   });
 
-  log('Transpiling done')
+  log('Transpiling done!')
   log('Copying package.json ...');
   await copy(currentDir('package.json'), distDir('package.json'));
 
-  log('Generating Readme ...');
-  await copy(currentDir('README.md'), distDir('README.md'));
+  log('Generating readme.md ...');
+  await copy(currentDir('readme.md'), distDir('readme.md'));
 
   log('');
   log('Build ready in ./dist'.green);

@@ -2,7 +2,7 @@ import React from 'react';
 import MyComponent from './'
 import recompose from 'recompose';
 
-export const displayName = 'My Component';
+export const displayName = 'MyComponent';
 
 export default [{
   title:'First Story',

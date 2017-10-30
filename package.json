@@ -23,11 +23,13 @@
     "babel-transform-dir": "^1.0.5",
     "colors": "^1.1.2",
     "commander": "^2.11.0",
+    "decamelize": "^1.2.0",
     "execa": "^0.8.0",
     "fs-extra": "^4.0.2",
     "pascalize": "^1.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "replace-in-file": "^3.0.0-beta.2",
     "sleep": "^5.1.1"
   }
 }

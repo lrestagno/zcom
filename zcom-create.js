@@ -5,6 +5,8 @@ const program = require('commander');
 const path = require('path');
 const pascalize = require('pascalize');
 const colors = require('colors');
+const replace = require('replace-in-file');
+const decamelize = require('decamelize');
 
 const {
   log,
@@ -13,20 +15,32 @@ const {
   currentDir
 } = require('./utils');
 
-program
-  .arguments('[name]')
-  .action(function (name, program, test) {
-    const formattedName = pascalize(name);
-    const finalDir = path.join(currentDir(), formattedName);
+program.arguments('[name]').action(async (name, program, test)=>{
+  // (async ()=>{
+    const componentName = pascalize(name);
+    const packageName = decamelize(componentName,'-');
+    const componentDir = path.join(currentDir(), packageName);
 
     // Copy boilerplate
-    log(`${formattedName.bold.yellow} component created at ${finalDir}`);
-    fs.copySync(boilerplateDir(), finalDir,{
+    log(`${componentName.bold.yellow} component created at ${componentDir}`);
+    await fs.copy(boilerplateDir(), componentDir,{
       overwrite:false
     });
 
+    await replace({
+      files: componentDir + '/**/*.*',
+      from: /MyComponent/g,
+      to: componentName,
+    })
+
+    await replace({
+      files: componentDir + '/**/*.*',
+      from: /my-component/g,
+      to: packageName,
+    })
+
     // Run: npm install
     log(`Installing dependencies ...`);
-    exec(`cd ${finalDir} && npm install`);
-  })
-  .parse(process.argv);
+    await exec(`cd ${componentDir} && npm install`);
+  // })();
+}).parse(process.argv);

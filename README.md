@@ -17,6 +17,8 @@ cd my-component
 ```bash
 zcom dev
 ```
+Can set the port using `PORT` env var.
+
 ## Build
 ```bash
 zcom build
