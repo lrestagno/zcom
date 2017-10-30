@@ -1,7 +1,7 @@
 {
   "name": "zcom",
   "description": "Create, code and distribute React components.",
-  "engines" : {
+  "engines": {
     "node": ">=7.6.0"
   },
   "keywords": [
@@ -11,7 +11,7 @@
     "create",
     "generator"
   ],
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
