@@ -4,4 +4,15 @@
 # Create a component
 `zcom my-new-super-cool-component`
 
-![Using zcom](img/zcom.gif?raw=true)
+# Run the dev environment (Storybook)
+`zcom dev`
+
+# Build the component for distribution
+`zcom build`
+
+Check the `dist` directory.
+
+# Build the storybook for distribution
+`zcom dev`
+
+Check the `.storybook-static` directory.

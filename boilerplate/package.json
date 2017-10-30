@@ -1,14 +1,15 @@
 {
-  "name": "boilerplate",
+  "name": "MyComponent",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "dependencies":{
-    "react":"16.0.0",
-    "zcom":"latest"
+  "devDependencies": {
+    "react": "16.0.0",
+    "recompose": "^0.26.0",
+    "zcom": "latest"
   },
   "keywords": [],
   "author": "",
