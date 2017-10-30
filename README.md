@@ -16,22 +16,17 @@ zcom my-component
 ```bash
 zcom dev
 ```
-
-## Build the component for distribution
-`dist` directory
-
-```bash
-zcom build
-```
-
 ## Patch and publish (NPM)
 ```bash
 zcom pap
 ```
 
-## Build the storybook for distribution
-`.storybook-static` directory
+## Just build
+```bash
+zcom build
+```
 
+## Build the storybook for distribution
 ```bash
 zcom build-storybook
 ```

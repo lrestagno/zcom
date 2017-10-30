@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 'use strict';
-
+const colors = require('colors');
 const program = require('commander');
-const { exec, currentDir } = require('./utils');
-const path = require('path');
+const {
+  exec,
+  log
+} = require('./utils');
 
-const storybookConfigPath = path.join(__dirname, '.storybook');
-
-exec(`npm version patch && zcom build && cd dist && npm publish`)
+(async ()=>{
+  log('Running patch & publish in ./dist directory');
+  try{
+    await exec(`npm version patch && zcom build && cd dist && npm publish`);
+  }catch(e){
+    log(e);
+  }
+})();

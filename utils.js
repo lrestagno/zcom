@@ -9,6 +9,7 @@ exports.exec = (command,options) => {
   const executing = execa.shell(command,options);
   executing.stdout.pipe(process.stdout);
   executing.stderr.pipe(process.stderr);
+  return executing;
 };
 
 exports.currentDir = (...paths) => path.join(process.cwd(), ...paths);

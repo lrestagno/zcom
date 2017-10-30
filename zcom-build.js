@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-const program = require('commander');
+const colors = require('colors');
 const path = require('path');
 const {
   readJson,
@@ -40,4 +40,7 @@ const presets = [
 
   log('Generating Readme ...');
   await copy(currentDir('README.md'), distDir('README.md'));
+
+  log('');
+  log('Build ready in ./dist'.green);
 })();
