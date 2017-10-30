@@ -18,7 +18,7 @@ const {
 program.arguments('[name]').action(async (name, program, test)=>{
   // (async ()=>{
     const componentName = pascalize(name);
-    const packageName = decamelize(componentName,'-');
+    const packageName = 'react-' + decamelize(componentName,'-');
     const componentDir = path.join(currentDir(), packageName);
 
     // Copy boilerplate
