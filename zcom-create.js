@@ -42,5 +42,16 @@ program.arguments('[name]').action(async (name, program, test)=>{
     // Run: npm install
     log(`Installing dependencies ...`);
     await exec(`cd ${componentDir} && npm install`);
+    log(`Done!`);
+
+    log(`${'PST!'.red} Consider set your own registry inyour package.json.
+###############################################################
+
+"publishConfig":{
+  "registry" : "http://my-internal-registry.local"
+}
+
+###############################################################
+    `);
   // })();
 }).parse(process.argv);

@@ -3,7 +3,7 @@ const execa = require('execa');
 const path = require('path');
 const fs = require('fs-extra');
 
-exports.log = (...args) => console.log('ZCOM '.bgMagenta.yellow,...args);
+exports.log = (...args) => console.log('zcom '.bgMagenta.yellow,...args);
 
 exports.exec = (command,options) => {
   const executing = execa.shell(command,options);
