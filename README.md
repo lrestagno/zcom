@@ -1,6 +1,6 @@
 ![](img/zcom.png)
 
-Create, code and distribute React components.
+Create, develop and distribute React components.
 
 ## Setup
 ```bash
@@ -17,7 +17,9 @@ zcom my-component
 zcom dev
 ```
 
-## Build the component for distribution (dist directory)
+## Build the component for distribution
+`dist` directory
+
 ```bash
 zcom build
 ```
@@ -27,7 +29,9 @@ zcom build
 zcom pap
 ```
 
-## Build the storybook for distribution (.storybook-static directory)
+## Build the storybook for distribution
+`.storybook-static` directory
+
 ```bash
 zcom build-storybook
 ```
