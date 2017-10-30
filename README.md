@@ -21,7 +21,7 @@ zcom dev
 zcom build
 ```
 
-## Patch (Build) and publish (NPM)
+## Patch (build) and publish to npm
 ```bash
 zcom pap
 ```
