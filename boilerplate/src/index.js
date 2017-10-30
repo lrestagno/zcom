@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container } from './styled';
 
-import {
-  eventHandler
-} from './utils';
+import { eventHandler } from './utils';
 
 const MyComponent = ({
   content,
   onClick
 }) => (
-  <div onClick={eventHandler('click in element', onClick)}>
-    {content}
-  </div>
+  <Container>
+    <div onClick={eventHandler('click in element', onClick)}>
+      {content}
+    </div>
+  </Container>
 )
 
 MyComponent.propTypes = {
