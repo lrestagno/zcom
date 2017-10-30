@@ -1,4 +1,8 @@
-## Install
+![alt text](img/zcom.png)
+
+Create, code and distribute React components.
+
+## Setup
 `npm install -g zcom`
 
 ## Create a component
@@ -13,6 +17,6 @@
 Check the `dist` directory.
 
 ## Build the storybook for distribution
-`zcom dev`
+`zcom build-storybook`
 
 Check the `.storybook-static` directory.
