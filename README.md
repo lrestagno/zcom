@@ -10,6 +10,7 @@ npm install -g zcom
 ## Create a component
 ```bash
 zcom my-component
+cd my-component
 ```
 
 ## Dev (Storybook)
