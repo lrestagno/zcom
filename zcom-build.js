@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-const pkg = require('./package.json');
 const program = require('commander');
 const path = require('path');
 const {
@@ -17,7 +16,6 @@ const {
   currentDir,
 } = require('./utils');
 
-const babelRCPath = path.join(__dirname,'.babelrc');
 const presets = [
   path.join(__dirname,'node_modules/babel-preset-env'),
   path.join(__dirname,'node_modules/babel-preset-react')

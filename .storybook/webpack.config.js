@@ -7,7 +7,7 @@ module.exports = (storybookBaseConfig, configType) => {
       r.exclude.push(process.env.STORYBOOK_CURRENT_DIR+'/node_modules')
 
       r.query.presets=[
-        path.resolve(__dirname,'../node_modules/babel-preset-es2015'),
+        path.resolve(__dirname,'../node_modules/babel-preset-env'),
         path.resolve(__dirname,'../node_modules/babel-preset-react')
       ]
     }
