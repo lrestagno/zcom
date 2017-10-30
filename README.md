@@ -16,7 +16,7 @@ zcom my-component
 ```bash
 zcom dev
 ```
-## Patch and publish (NPM)
+## Patch (Build) and publish (NPM)
 ```bash
 zcom pap
 ```
