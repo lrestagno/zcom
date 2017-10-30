@@ -2,7 +2,7 @@
   "name": "zcom",
   "description": "Create, code and distribute React components.",
   "engines" : {
-    "node": ">=7.6.0",
+    "node": ">=7.6.0"
   },
   "keywords": [
     "react",
