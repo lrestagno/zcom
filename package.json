@@ -18,6 +18,9 @@
   "scripts": {
     "patch": "npm version patch && npm publish"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@storybook/react": "^3.2.13",
     "babel-preset-env": "^1.6.1",
