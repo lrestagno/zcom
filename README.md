@@ -10,7 +10,11 @@ npm install -g zcom
 ## Create a component
 ```bash
 zcom my-component
-cd my-component
+```
+
+## Create a internal component (inside a project)
+```bash
+zcom my-component -i [componentsDir]
 ```
 
 ## Dev (Storybook)

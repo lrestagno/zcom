@@ -15,17 +15,22 @@ const {
   currentDir
 } = require('./utils');
 
-program.arguments('[name]').action(async (name, program, test)=>{
-  // (async ()=>{
+program
+.option('-i, --intern [intern]', 'Create the component in an intern inside the project')
+.arguments('[name]')
+.action(async (name)=>{
+    const { intern } = program;
     const componentName = pascalize(name);
-    const packageName = 'react-' + decamelize(componentName,'-');
-    const componentDir = path.join(currentDir(), packageName);
+    const packageName = (intern ? '' : 'react-') + decamelize(componentName,'-');
+    const internDir = intern && (typeof intern == 'string' ? intern : 'components/');
+    const componentDir = intern ? currentDir(internDir, packageName) : currentDir(packageName);
+    const boilerplateComponent = intern ? boilerplateDir('src') : boilerplateDir();
 
-    // Copy boilerplate
-    log(`${componentName.bold.yellow} component created at ${componentDir}`);
-    await fs.copy(boilerplateDir(), componentDir,{
+    log(`Creating component ...`);
+    await fs.copy(boilerplateComponent, componentDir,{
       overwrite:false
     });
+    log(`${componentName.bold.yellow} component created at ${componentDir}`);
 
     await replace({
       files: componentDir + '/**/*.*',
@@ -39,12 +44,14 @@ program.arguments('[name]').action(async (name, program, test)=>{
       to: packageName,
     })
 
-    // Run: npm install
-    log(`Installing dependencies ...`);
-    await exec(`cd ${componentDir} && npm install`);
-    log(`Done!`);
+    if(!intern){
 
-    log(`${'PST!'.red} Consider set your own registry inyour package.json.
+      log(`Installing dependencies ...`);
+      await exec(`cd ${componentDir} && npm install`);
+      log(`Done!`);
+
+      log(`${'PST!'.green} Consider set your own registry inyour package.json.
+
 ###############################################################
 
 "publishConfig":{
@@ -52,6 +59,9 @@ program.arguments('[name]').action(async (name, program, test)=>{
 }
 
 ###############################################################
-    `);
-  // })();
-}).parse(process.argv);
+
+      `);
+    }
+
+})
+.parse(process.argv);
