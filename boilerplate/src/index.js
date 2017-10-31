@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from './styled';
+import { ThemeProvider } from 'styled-components';
+import { defaults } from 'lodash';
+import { defaultTheme } from './styled';
+import View from './view';
 
-import { eventHandler } from './utils';
-
-const MyComponent = ({
-  content,
-  onClick
-}) => (
-  <Container onClick={eventHandler('click in element', onClick)}>
-    MyComponent - {content}
-  </Container>
+const MyComponent = (props) => (
+  <ThemeProvider theme={defaults(props.theme, defaultTheme)}>
+    <View {...props} />
+  </ThemeProvider>
 )
 
 MyComponent.propTypes = {
@@ -20,6 +18,7 @@ MyComponent.propTypes = {
 
 MyComponent.defaultProps = {
   content:'default value',
+  theme:{}
 }
 
 export default MyComponent;

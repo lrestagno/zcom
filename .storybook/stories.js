@@ -11,8 +11,10 @@ function requireAll(requireContext) {
 var modules = requireAll(req);
 
 modules.forEach(m=>{
-  const storiesContainer = storiesOf(m.displayName || 'Component', module)
-  m.default.forEach(({Story, title})=>{
-    storiesContainer.add(title, Story)
+  const storiesContainer = storiesOf(m.displayName || 'Component', module);
+  Object.keys(m).forEach(k=>{
+    if(k=='displayName') return true;
+    const { title, story } = m[k];
+    storiesContainer.add(title, story({action}))
   })
 })

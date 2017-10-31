@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 boilerplate/package-lock.json
+boilerplate/dist
+boilerplate/.storybook-static
