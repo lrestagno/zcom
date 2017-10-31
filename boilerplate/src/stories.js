@@ -5,7 +5,7 @@ import recompose from 'recompose';
 export const displayName = 'MyComponent';
 
 export default [{
-  title:'MyComponent',
+  title:'MyComponent First Story',
   Story: () => (
     <MyComponent content="First Story"></MyComponent>
   )

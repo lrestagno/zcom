@@ -48,6 +48,7 @@ program
 
       log(`Installing dependencies ...`);
       await exec(`cd ${componentDir} && npm install`);
+      await exec(`cd ${componentDir} && mv gitignore .gitignore`);
       log(`Done!`);
 
       log(`${'PST!'.green} Consider set your own registry inyour package.json.

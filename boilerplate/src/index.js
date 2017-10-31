@@ -8,10 +8,8 @@ const MyComponent = ({
   content,
   onClick
 }) => (
-  <Container>
-    <div onClick={eventHandler('click in element', onClick)}>
-      {content}
-    </div>
+  <Container onClick={eventHandler('click in element', onClick)}>
+    {content}
   </Container>
 )
 
