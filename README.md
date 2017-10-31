@@ -18,10 +18,11 @@ zcom my-component -i [componentsDir]
 ```
 
 ## Dev (Storybook)
+Can set the port using `PORT` env var. Load `./**/stories.js` files in the 
+current directory. `**/dist/**` is excluded.
 ```bash
 zcom dev
 ```
-Can set the port using `PORT` env var.
 
 ## Build
 ```bash
