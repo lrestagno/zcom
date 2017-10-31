@@ -9,7 +9,7 @@ const MyComponent = ({
   onClick
 }) => (
   <Container onClick={eventHandler('click in element', onClick)}>
-    {content}
+    MyComponent - {content}
   </Container>
 )
 
