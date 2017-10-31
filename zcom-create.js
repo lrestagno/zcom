@@ -26,7 +26,7 @@ program
     const componentDir = intern ? currentDir(internDir, packageName) : currentDir(packageName);
     const boilerplateComponent = intern ? boilerplateDir('src') : boilerplateDir();
 
-    log(`Creating component ...`);
+    log(`Inform the googles, we are generating a component ...`);
     await fs.copy(boilerplateComponent, componentDir,{
       overwrite:false
     });
@@ -50,18 +50,6 @@ program
       await exec(`cd ${componentDir} && npm install`);
       await exec(`cd ${componentDir} && mv gitignore .gitignore`);
       log(`Done!`);
-
-      log(`${'PST!'.green} Consider set your own registry inyour package.json.
-
-###############################################################
-
-"publishConfig":{
-  "registry" : "http://my-internal-registry.local"
-}
-
-###############################################################
-
-      `);
     }
 
 })
