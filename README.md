@@ -18,7 +18,7 @@ zcom my-component -i [componentsDir]
 ```
 
 ## Dev (Storybook)
-Can set the port using `PORT` env var. Load `./**/stories.js` files in the 
+Can set the port using `PORT` env var. Load `./**/stories.js` files in the
 current directory. `**/dist/**` is excluded.
 ```bash
 zcom dev
@@ -37,4 +37,9 @@ zcom pap
 ## Build the storybook (static)
 ```bash
 zcom build-storybook
+```
+
+## Build the storybook and serve by ngrok (static)
+```bash
+zcom serve
 ```

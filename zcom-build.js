@@ -23,7 +23,7 @@ const presets = [
 
 
 (async ()=>{
-  log('Transpiling ...');
+  log('transpiling ...');
   await transform(sourceDir(), distDir(), {
     babel: {
       presets:presets
@@ -34,13 +34,13 @@ const presets = [
     }
   });
 
-  log('Transpiling done!')
-  log('Copying package.json ...');
+  log('transpiling done!')
+  log('copying package.json ...');
   await copy(currentDir('package.json'), distDir('package.json'));
 
-  log('Generating readme.md ...');
+  log('generating readme.md ...');
   await copy(currentDir('readme.md'), distDir('readme.md'));
 
   log('');
-  log('Build ready in ./dist'.green);
+  log('build ready in ./dist'.green);
 })();

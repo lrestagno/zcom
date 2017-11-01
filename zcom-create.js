@@ -26,7 +26,7 @@ program
     const componentDir = intern ? currentDir(internDir, packageName) : currentDir(packageName);
     const boilerplateComponent = intern ? boilerplateDir('src') : boilerplateDir();
 
-    log(`Inform the googles, we are generating a component ...`);
+    log(`inform the googles, we are generating a component ...`);
     await fs.copy(boilerplateComponent, componentDir,{
       overwrite:false
     });
@@ -45,11 +45,10 @@ program
     })
 
     if(!intern){
-
-      log(`Installing dependencies ...`);
+      log(`installing dependencies ...`);
       await exec(`cd ${componentDir} && npm install`);
       await exec(`cd ${componentDir} && mv gitignore .gitignore`);
-      log(`Done!`);
+      log(`done!`);
     }
 
 })

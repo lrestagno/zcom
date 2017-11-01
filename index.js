@@ -11,4 +11,5 @@ program
   .command('build', 'build the component')
   .command('build-storybook', 'build storybook static')
   .command('pap', 'patch, build and publish')
+  .command('serve', 'build storybook and serve from local')
   .parse(process.argv);
