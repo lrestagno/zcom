@@ -6,6 +6,6 @@ export const  Container = styled.div`
   background-color: ${props=>props.theme.mainBg}
 `
 
-export const defaultTheme = {
-  mainBg:'#0b8'
-}
+export const componentTheme = mainTheme => ({
+  mainBg: '#0f0', //in some cases: mainTheme.colors.brand
+})

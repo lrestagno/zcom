@@ -12,4 +12,5 @@ export default ({
 )
 
 // include only some markup and imports.
-// this is the view. logic is forbidden here.
+// this is the view.
+// logic is forbidden here.
