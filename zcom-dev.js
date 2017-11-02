@@ -6,8 +6,8 @@ const { exec, currentDir, log } = require('./utils');
 const path = require('path');
 
 const port = process.env.PORT || 8888;
-
 const storybookConfigPath = path.join(__dirname, '.storybook');
+const staticsPath = currentDir('statics');
 
 (async ()=>{
   try{
@@ -15,7 +15,8 @@ const storybookConfigPath = path.join(__dirname, '.storybook');
     await exec(
       `STORYBOOK_CURRENT_DIR=${currentDir()} `+
       `start-storybook -p ${port} `+
-      `-c ${storybookConfigPath} `,
+      `-c ${storybookConfigPath} ` +
+      `-s ${staticsPath}`,
       { cwd:__dirname }
     );
 
