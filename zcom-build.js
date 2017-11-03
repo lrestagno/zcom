@@ -12,7 +12,7 @@ const {
   log,
   execSync,
   sourceDir,
-  distDir,
+  libDir,
   currentDir,
 } = require('./utils');
 
@@ -22,31 +22,35 @@ const presets = [
   path.join(__dirname,'node_modules/babel-preset-react')
 ];
 
-const plugins = [
-  path.join(__dirname,'node_modules/babel-plugin-inline-react-svg'),
-]
+const svgPlugins = path.join(__dirname,'node_modules/babel-plugin-inline-react-svg');
 
+const plugins = [svgPlugins];
 
 (async ()=>{
   log('transpiling ...');
-  await transform(sourceDir(), distDir(), {
-    babel: {
-      presets,
-      plugins
-    },
-    // Invokes whenever a file is transformed and written.
-    onFile: (file) => {
-      log(`  src/${file} -> dist/${file}`)
-    }
-  });
+  try{
+    await transform(sourceDir(), libDir(), {
+      babel: {
+        presets,
+        plugins,
+        filename:sourceDir('index.js')
+      },
+      // Invokes whenever a file is transformed and written.
+      onFile: (file) => {
+        log(`  src/${file} -> lib/${file}`)
+      }
+    });
+  }catch(e){
+    console.log(e);
+  }
 
   log('transpiling done!')
   log('copying package.json ...');
-  await copy(currentDir('package.json'), distDir('package.json'));
+  await copy(currentDir('package.json'), libDir('package.json'));
 
   log('generating readme.md ...');
-  await copy(currentDir('readme.md'), distDir('readme.md'));
+  await copy(currentDir('readme.md'), libDir('readme.md'));
 
   log('');
-  log('build ready in ./dist'.green);
+  log('build ready in ./lib'.green);
 })();

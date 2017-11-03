@@ -8,9 +8,9 @@ const {
 } = require('./utils');
 
 (async ()=>{
-  log('running patch & publish in ./dist directory');
+  log('running patch & publish in ./lib directory');
   try{
-    await exec(`npm version patch && zcom build && cd dist && npm publish`);
+    await exec(`npm version patch && zcom build && cd lib && npm publish`);
   }catch(e){
     log(e);
   }

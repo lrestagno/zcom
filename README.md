@@ -27,7 +27,7 @@ Port can be setted using `PORT` environment var.
 
 Static files can be served from `/statics/` directory.
 
-This search `./**/stories.js` files in the current directory. `**/dist/**` are excluded.
+This search `./**/stories.js` files in the current directory. `**/lib/**` are excluded.
 
 #### Build
 ```bash

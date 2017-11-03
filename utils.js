@@ -14,6 +14,6 @@ exports.exec = (command,options) => {
 
 exports.currentDir = (...paths) => path.join(process.cwd(), ...paths);
 exports.sourceDir = (extraPath='') => this.currentDir('src', extraPath);
-exports.distDir = (extraPath='') => this.currentDir('dist', extraPath);
+exports.libDir = (extraPath='') => this.currentDir('lib', extraPath);
 exports.zcomDir = (...paths) => path.join(__dirname, ...paths);
 exports.boilerplateDir = (...paths) => this.zcomDir('boilerplate', ...paths);
