@@ -17,16 +17,22 @@ const {
 } = require('./utils');
 
 const presets = [
+  path.join(__dirname,'node_modules/babel-preset-stage-0'),
   path.join(__dirname,'node_modules/babel-preset-env'),
   path.join(__dirname,'node_modules/babel-preset-react')
 ];
+
+const plugins = [
+  path.join(__dirname,'node_modules/babel-plugin-inline-react-svg'),
+]
 
 
 (async ()=>{
   log('transpiling ...');
   await transform(sourceDir(), distDir(), {
     babel: {
-      presets:presets
+      presets,
+      plugins
     },
     // Invokes whenever a file is transformed and written.
     onFile: (file) => {
