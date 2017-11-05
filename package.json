@@ -1,6 +1,6 @@
 {
   "name": "zcom",
-  "description": "Create, code and distribute React components.",
+  "description": "Create and share react components",
   "engines": {
     "node": ">=7.6.0"
   },
