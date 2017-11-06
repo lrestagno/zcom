@@ -14,10 +14,20 @@ module.exports = (storybookBaseConfig, configType) => {
       ]
 
       r.query.plugins.push(
-        path.resolve(__dirname,'../node_modules/babel-plugin-inline-react-svg/lib/index.js')
+        path.resolve(__dirname,'../node_modules/babel-plugin-inline-react-svg/lib/index.js'),
+        [path.resolve(__dirname,'../node_modules/babel-plugin-inline-import/build/index.js'),{
+          "extensions": [
+            ".css"
+          ]
+        }],
+        [path.resolve(__dirname,'../node_modules/babel-plugin-inline-import-data-uri/build/index.js'),{
+          "extensions": [
+            ".png"
+          ]
+        }],
       );
     }
   })
-  // Return the altered config
+
   return storybookBaseConfig;
 };

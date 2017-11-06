@@ -24,7 +24,21 @@ const presets = [
 
 const svgPlugins = path.join(__dirname,'node_modules/babel-plugin-inline-react-svg');
 
-const plugins = [svgPlugins];
+const inlineImportPlugin = [
+  path.resolve(__dirname,'node_modules/babel-plugin-inline-import/build/index.js'),
+  {
+    "extensions": [".css"]
+  }
+];
+
+const inlineImportDataURIPlugin = [
+  path.resolve(__dirname,'node_modules/babel-plugin-inline-import-data-uri/build/index.js'),
+  {
+    "extensions": [".png"]
+  }
+];
+
+const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
 
 (async ()=>{
   log('transpiling ...');
