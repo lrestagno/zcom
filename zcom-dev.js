@@ -11,8 +11,8 @@ const staticsPath = currentDir('statics');
 
 (async ()=>{
   try{
-    log('loading /**/stories.js');
-    
+    log('loading ./src/**/stories.js');
+
     await exec(
       `STORYBOOK_CURRENT_DIR=${currentDir()} `+
       `start-storybook -p ${port} `+
