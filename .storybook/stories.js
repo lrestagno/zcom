@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-
-const req = require.context(process.env.STORYBOOK_CURRENT_DIR, true, /[^lib].stories\.js$/)
+const req = require.context(process.env.STORYBOOK_CURRENT_DIR, true, /^\.\/src\/*stories\.js$/)
 
 function requireAll(requireContext) {
   return requireContext.keys().map(requireContext);

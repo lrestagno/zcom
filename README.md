@@ -27,24 +27,22 @@ Port can be setted using `PORT` environment var.
 
 Static files can be served from `/statics/` directory.
 
-This search `./**/stories.js` files in the current directory. `**/lib/**` are excluded.
-
 #### Build
 ```bash
 zcom build
 ```
 
-#### Version patch (build) and publish to npm
+#### Version patch, build and publish to npm
 ```bash
 zcom pap
 ```
 
-#### Build the storybook (static)
+#### Build static version of storybook
 ```bash
 zcom build-storybook
 ```
 
-#### Build the storybook and serve (by ngrok)
+#### Build storybook and serve it (by ngrok)
 ```bash
 zcom serve
 ```
