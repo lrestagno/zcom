@@ -10,7 +10,9 @@ const {
 (async ()=>{
   log('running patch & publish in ./lib directory');
   try{
-    await exec(`npm version patch && zcom build && cd lib && npm publish`);
+    await exec(`npm version patch`);
+    await require('./zcom-build');
+    await exec(`cd lib && npm publish`);
   }catch(e){
     log(e);
   }

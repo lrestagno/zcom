@@ -9,7 +9,8 @@ const {
 (async ()=>{
   log('🤘');
   try{
-    await exec(`zcom pap && git push origin master`);
+    await require('./zcom-pap');
+    await exec(`git push origin master`);
   }catch(e){
     log(e);
   }
