@@ -10,6 +10,7 @@ program
   .command('dev', 'run dev mode')
   .command('build', 'build the component')
   .command('build-storybook', 'build storybook static')
-  .command('pap', 'patch, build and publish')
+  .command('pap', 'patch, (build) and publish (npm)')
+  .command('pappo', 'patch, (build), publish (npm) and push (git origin)')
   .command('serve', 'build storybook and serve from local')
   .parse(process.argv);
