@@ -1,5 +1,22 @@
 const path = require('path');
 
+
+const inlineSVG = path.resolve(__dirname,'../node_modules/babel-plugin-inline-react-svg/lib/index.js');
+
+const inlineImportURI = [
+  path.resolve(__dirname,'../node_modules/babel-plugin-inline-import/build/index.js'),
+  {
+    "extensions": [".css"]
+  }
+];
+
+const inlineImportDataURI = [
+  path.resolve(__dirname,'../node_modules/babel-plugin-inline-import-data-uri/build/index.js'),
+  {
+    "extensions": [".png"]
+  }
+];
+
 module.exports = (storybookBaseConfig, configType) => {
   storybookBaseConfig.module.rules.forEach(r=>{
     if(r.loader.includes('babel')){
@@ -13,19 +30,9 @@ module.exports = (storybookBaseConfig, configType) => {
         path.resolve(__dirname,'../node_modules/babel-preset-react')
       ]
 
-      r.query.plugins.push(
-        path.resolve(__dirname,'../node_modules/babel-plugin-inline-react-svg/lib/index.js'),
-        [path.resolve(__dirname,'../node_modules/babel-plugin-inline-import/build/index.js'),{
-          "extensions": [
-            ".css"
-          ]
-        }],
-        [path.resolve(__dirname,'../node_modules/babel-plugin-inline-import-data-uri/build/index.js'),{
-          "extensions": [
-            ".png"
-          ]
-        }],
-      );
+      r.query.plugins.push(inlineSVG)
+      r.query.plugins.push(inlineImportURI)
+      r.query.plugins.push(inlineImportDataURI)
     }
   })
 
