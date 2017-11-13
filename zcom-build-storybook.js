@@ -13,7 +13,7 @@ const path = require('path');
 const storybookConfigPath = path.join(__dirname, '.storybook');
 const staticsPath = currentDir('statics');
 
-module.exports = (async ()=>{
+const promise = (async ()=>{
   try{
     await exec(`STORYBOOK_CURRENT_DIR=${currentDir()} `+
                `build-storybook -c ${storybookConfigPath} `+
@@ -27,3 +27,5 @@ module.exports = (async ()=>{
 
   log('storybook built in .storybook-static');
 })();
+
+module.exports = promise;

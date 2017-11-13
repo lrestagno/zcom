@@ -40,7 +40,7 @@ const inlineImportDataURIPlugin = [
 
 const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
 
-(async ()=>{
+const promise = (async ()=>{
   log('transpiling ...');
   try{
     await transform(sourceDir(), libDir(), {
@@ -68,3 +68,5 @@ const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
   log('');
   log('build ready in ./lib'.green);
 })();
+
+module.exports = promise;

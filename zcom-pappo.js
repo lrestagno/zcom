@@ -6,7 +6,7 @@ const {
   log
 } = require('./utils');
 
-(async ()=>{
+const promise = (async ()=>{
   log('🤘');
   try{
     await require('./zcom-pap');
@@ -15,3 +15,5 @@ const {
     log(e);
   }
 })();
+
+module.exports = promise;

@@ -7,7 +7,7 @@ const {
   log
 } = require('./utils');
 
-(async ()=>{
+const promise = (async ()=>{
   log('running patch & publish in ./lib directory');
   try{
     await exec(`npm version patch`);
@@ -17,3 +17,5 @@ const {
     log(e);
   }
 })();
+
+module.exports = promise;
