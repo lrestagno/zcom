@@ -2,6 +2,7 @@
 'use strict';
 const colors = require('colors');
 const path = require('path');
+const fs = require('fs');
 const {
   readJson,
   copy
@@ -51,19 +52,23 @@ const promise = (async ()=>{
       },
       // Invokes whenever a file is transformed and written.
       onFile: (file) => {
-        log(`  src/${file} -> lib/${file}`)
+        log(`src/${file} -> lib/${file}`)
       }
     });
   }catch(e){
     console.log(e);
   }
+  log('transpiling done!');
 
-  log('transpiling done!')
   log('copying package.json ...');
   await copy(currentDir('package.json'), libDir('package.json'));
 
   log('generating readme.md ...');
   await copy(currentDir('readme.md'), libDir('readme.md'));
+
+  // TODO: Append proptypes to readme
+  // const propTypes = require(libDir()).default.propTypes;
+  // console.log(Object.keys(propTypes));
 
   log('');
   log('build ready in ./lib'.green);
