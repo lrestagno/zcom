@@ -6,7 +6,7 @@ const pkg = require('./package.json');
 
 program
   .version(pkg.version)
-  .command('create', 'create a component', {isDefault: true})
+  .command('create', 'create a component')
   .command('dev', 'run dev mode')
   .command('build', 'build the component')
   .command('build-storybook', 'build storybook static')

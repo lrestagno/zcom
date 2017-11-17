@@ -11,7 +11,7 @@ npm install -g zcom
 
 #### Create a component
 ```bash
-zcom my-component
+zcom create my-component
 ```
 
 #### Create a internal component (inside a project)
