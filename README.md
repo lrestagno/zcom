@@ -16,7 +16,7 @@ zcom create my-component
 
 #### Create a internal component (inside a project)
 ```bash
-zcom my-component -i [componentsDir]
+zcom create my-component -i [componentsDir]
 ```
 
 #### Dev (Storybook)
