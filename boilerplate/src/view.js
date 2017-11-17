@@ -2,12 +2,9 @@ import React from 'react';
 import { Container } from './styled';
 import { eventHandler } from './utils';
 
-export default ({
-  onClick,
-  content
-}) => (
-  <Container onClick={eventHandler('click in element', onClick)}>
-    MyComponent - {content}
+export default (props) => (
+  <Container>
+    MyComponent
   </Container>
 )
 
