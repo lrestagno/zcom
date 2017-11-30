@@ -2,15 +2,22 @@
 'use strict';
 const colors = require('colors');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
+const util = require('util');
+const {
+  transformFile
+} = require('babel-core');
+const transformFileProm = util.promisify(transformFile);
+const writeFile = util.promisify(fs.writeFile);
+const glob = require ('glob');
 const {
   readJson,
   copy
 } = require('fs-extra');
-const transform = require('babel-transform-dir');
 
 const {
   log,
+  exec,
   execSync,
   sourceDir,
   libDir,
@@ -24,7 +31,7 @@ const presets = [
 ];
 
 const svgPlugins = path.join(__dirname,'node_modules/babel-plugin-inline-react-svg');
-
+const babelBinPath = path.resolve(__dirname,'node_modules/.bin/babel')
 const inlineImportPlugin = [
   path.resolve(__dirname,'node_modules/babel-plugin-inline-import/build/index.js'),
   {
@@ -44,17 +51,40 @@ const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
 const promise = (async ()=>{
   log('transpiling ...');
   try{
-    await transform(sourceDir(), libDir(), {
-      babel: {
-        presets,
-        plugins,
-        filename:sourceDir('index.js')
-      },
-      // Invokes whenever a file is transformed and written.
-      onFile: (file) => {
-        log(`src/${file} -> lib/${file}`)
-      }
-    });
+    // await transform(sourceDir(), libDir(), {
+    //   babel: {
+    //     presets,
+    //     plugins,
+    //     filename:sourceDir('index.js')
+    //   },
+    //   // Invokes whenever a file is transformed and written.
+    //   onFile: (file) => {
+    //     log(`src/${file} -> lib/${file}`)
+    //   }
+    // });
+    // const babelCommand = `${babelBinPath} ${sourceDir()} --out-dir ${libDir()} --presets ${presets.join(',')}`;
+    const options = {
+      presets,
+      plugins,
+    }
+    // console.log(libDir());
+    await fs.emptyDir(libDir())
+    const globPattern = `${sourceDir()}/**/*.js`;
+    // console.log(globPattern);
+    const files = glob.sync(globPattern);
+    // console.log(files);
+
+    for(let file of files){
+      const relativePath = path.relative(sourceDir(), file);
+      const destinationPath = path.resolve(libDir(relativePath));
+      // console.log(destinationPath);
+
+      const { code } = await transformFileProm(file, options);
+      await fs.ensureFile(destinationPath);
+      await writeFile(destinationPath, code);
+      log(`${relativePath} -> transpiled`);
+    }
+
   }catch(e){
     console.log(e);
   }

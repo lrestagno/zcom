@@ -17,7 +17,7 @@ const promise = (async ()=>{
   try{
     await exec(`STORYBOOK_CURRENT_DIR=${currentDir()} `+
                `build-storybook -c ${storybookConfigPath} `+
-               `-o ${currentDir('.storybook-static')}` +
+               `-o ${currentDir('.storybook-static')} ` +
                `-s ${staticsPath}`,{
       cwd:__dirname
     });
