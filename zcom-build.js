@@ -51,33 +51,18 @@ const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
 const promise = (async ()=>{
   log('transpiling ...');
   try{
-    // await transform(sourceDir(), libDir(), {
-    //   babel: {
-    //     presets,
-    //     plugins,
-    //     filename:sourceDir('index.js')
-    //   },
-    //   // Invokes whenever a file is transformed and written.
-    //   onFile: (file) => {
-    //     log(`src/${file} -> lib/${file}`)
-    //   }
-    // });
-    // const babelCommand = `${babelBinPath} ${sourceDir()} --out-dir ${libDir()} --presets ${presets.join(',')}`;
     const options = {
       presets,
       plugins,
     }
-    // console.log(libDir());
+
     await fs.emptyDir(libDir())
     const globPattern = `${sourceDir()}/**/*.js`;
-    // console.log(globPattern);
     const files = glob.sync(globPattern);
-    // console.log(files);
 
     for(let file of files){
       const relativePath = path.relative(sourceDir(), file);
       const destinationPath = path.resolve(libDir(relativePath));
-      // console.log(destinationPath);
 
       const { code } = await transformFileProm(file, options);
       await fs.ensureFile(destinationPath);
