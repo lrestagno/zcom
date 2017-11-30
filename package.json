@@ -11,7 +11,7 @@
     "create",
     "generator"
   ],
-  "version": "0.0.48",
+  "version": "0.0.49",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
