@@ -36,5 +36,10 @@ module.exports = (storybookBaseConfig, configType) => {
     }
   })
 
+  storybookBaseConfig.module.rules.push({
+    test: /\.md$/,
+    use: path.resolve(__dirname,'../node_modules/raw-loader'),
+  })
+
   return storybookBaseConfig;
 };
