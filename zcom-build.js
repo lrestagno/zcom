@@ -4,6 +4,8 @@ const colors = require('colors');
 const path = require('path');
 const fs = require('fs-extra');
 const util = require('util');
+const babelOptions = require('./babel-options');
+
 const {
   transformFile
 } = require('babel-core');
@@ -24,37 +26,9 @@ const {
   currentDir,
 } = require('./utils');
 
-const presets = [
-  path.join(__dirname,'node_modules/babel-preset-stage-0'),
-  path.join(__dirname,'node_modules/babel-preset-env'),
-  path.join(__dirname,'node_modules/babel-preset-react')
-];
-
-const svgPlugins = path.join(__dirname,'node_modules/babel-plugin-inline-react-svg');
-const babelBinPath = path.resolve(__dirname,'node_modules/.bin/babel')
-const inlineImportPlugin = [
-  path.resolve(__dirname,'node_modules/babel-plugin-inline-import/build/index.js'),
-  {
-    "extensions": [".css"]
-  }
-];
-
-const inlineImportDataURIPlugin = [
-  path.resolve(__dirname,'node_modules/babel-plugin-inline-import-data-uri/build/index.js'),
-  {
-    "extensions": [".png"]
-  }
-];
-
-const plugins = [svgPlugins, inlineImportPlugin, inlineImportDataURIPlugin];
-
 const promise = (async ()=>{
   log('transpiling ...');
   try{
-    const options = {
-      presets,
-      plugins,
-    }
 
     await fs.emptyDir(libDir())
     const globPattern = `${sourceDir()}/**/*.js`;
@@ -64,7 +38,7 @@ const promise = (async ()=>{
       const relativePath = path.relative(sourceDir(), file);
       const destinationPath = path.resolve(libDir(relativePath));
 
-      const { code } = await transformFileProm(file, options);
+      const { code } = await transformFileProm(file, babelOptions);
       await fs.ensureFile(destinationPath);
       await writeFile(destinationPath, code);
       log(`${relativePath} -> transpiled`);
