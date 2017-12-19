@@ -2,10 +2,14 @@ const colors = require('colors');
 const execa = require('execa');
 const path = require('path');
 const fs = require('fs-extra');
+const { defaults } = require('lodash');
 
 exports.log = (...args) => console.log('zcom '.bgMagenta.yellow,...args);
 
-exports.exec = (command,options) => {
+exports.exec = (command,opts) => {
+  const options = defaults(opts,{
+    env: { FORCE_COLOR: true }
+  })
   const executing = execa.shell(command,options);
   executing.stdout.pipe(process.stdout);
   executing.stderr.pipe(process.stderr);

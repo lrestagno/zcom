@@ -9,6 +9,7 @@ program
   .command('create', 'create a component')
   .command('dev', 'run dev mode')
   .command('build', 'build the component')
+  .command('test', 'run jest')
   .command('build-storybook', 'build storybook static')
   .command('pap', 'patch, (build) and publish (npm)')
   .command('pappo', 'patch, (build), publish (npm) and push (git origin)')

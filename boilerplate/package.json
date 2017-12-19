@@ -10,10 +10,14 @@
   },
   "devDependencies": {
     "babel-runtime": "^6.26.0",
-    "react": "16.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "lodash": "^4.17.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
     "recompose": "^0.26.0",
-    "styled-components": "^2.2.3",
-    "lodash": "^4.17.4"
+    "styled-components": "^2.2.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

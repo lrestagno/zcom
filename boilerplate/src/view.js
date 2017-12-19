@@ -2,9 +2,9 @@ import React from 'react';
 import { Container } from './styled';
 import { eventHandler } from './utils';
 
-export default (props) => (
-  <Container>
-    MyComponent
+export default ({children}) => (
+  <Container onMouseEnter>
+    MyComponent - {children}
   </Container>
 )
 

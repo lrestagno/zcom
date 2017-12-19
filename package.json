@@ -24,6 +24,7 @@
   "dependencies": {
     "@storybook/react": "^3.2.18",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.3",
     "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-inline-import-data-uri": "^1.0.1",
     "babel-plugin-inline-react-svg": "^0.4.0",
@@ -38,6 +39,8 @@
     "express": "^4.16.2",
     "fs-extra": "^4.0.2",
     "glob": "^7.1.2",
+    "jest": "^22.0.3",
+    "lodash": "^4.17.4",
     "ngrok": "^2.2.23",
     "pascalize": "^1.0.1",
     "pify": "^3.0.0",
