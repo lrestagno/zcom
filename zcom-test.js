@@ -9,7 +9,7 @@ const {
 
 const promise = (async ()=>{
   try{
-    await exec(`CURRENT_DIR=${currentDir()} jest --watch --no-cache`,
+    await exec(`CURRENT_DIR=${currentDir()} jest --watchAll --no-cache`,
       { cwd:__dirname }
     );
   }catch(e){
