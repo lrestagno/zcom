@@ -3,9 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withReadme, withDocs } from 'storybook-readme';
 const req = require.context(process.env.STORYBOOK_CURRENT_DIR, true, /^\.\/src\/*stories\.js$/);
-try{
-  const readme = require(process.env.STORYBOOK_CURRENT_DIR+'/readme.md');
-}catch(e){}
+const readme = require(process.env.STORYBOOK_CURRENT_DIR+'/readme.md');
 
 const readmeNotFound = 'Creá el **readme.md** en el root de tu component vieja!'
 const readmeContent = typeof readme != 'undefined' ? readme : readmeNotFound;
