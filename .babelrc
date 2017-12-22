@@ -7,7 +7,7 @@
     }],
     ["inline-import-data-uri"],
     ["styled-components", {
-    "ssr": true
+      "ssr": true
     }]
   ]
 }
