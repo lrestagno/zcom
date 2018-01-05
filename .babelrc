@@ -2,6 +2,7 @@
   "presets":["stage-0","env","react"],
   "plugins":[
     ["inline-react-svg"],
+    ["transform-runtime"],
     ["inline-import", {
       "extensions": [".css"]
     }],
