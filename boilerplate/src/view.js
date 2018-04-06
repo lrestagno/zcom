@@ -3,7 +3,7 @@ import { Container } from './styled';
 import { eventHandler } from './utils';
 
 export default ({children}) => (
-  <Container onMouseEnter>
+  <Container>
     MyComponent - {children}
   </Container>
 )
