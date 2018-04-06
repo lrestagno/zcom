@@ -7,13 +7,10 @@ Create and share React components
 npm install -g zcom
 ```
 
-## Commands
-
 #### Create a component
 ```bash
 zcom create my-component
 ```
-
 #### Create a internal component (inside a project)
 ```bash
 zcom create my-component -i [componentsDir]
