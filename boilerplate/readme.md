@@ -14,7 +14,9 @@ export default () => (
 
 ### Props
 
-#### theme<Object>
+#### theme&lt;Object&gt;
+
+
 It merges with the default theme overriding some styled component props:
 
 ```js

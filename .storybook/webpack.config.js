@@ -10,12 +10,7 @@ module.exports = (storybookBaseConfig, configType) => {
 
       r.query = babelOptions;
     }
-  })
-
-  storybookBaseConfig.module.rules.push({
-    test: /\.md$/,
-    use: path.resolve(__dirname,'../node_modules/raw-loader'),
-  })
+  });  
 
   return storybookBaseConfig;
 };
